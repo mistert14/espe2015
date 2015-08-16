@@ -1,0 +1,66 @@
+Pemf:
+    type: entity
+    table: pemf
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+        prenom:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+        ecoleNom:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            column: ecole_nom
+        ecoleMail:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            column: ecole_mail
+        circo:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+        decharge:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+        cycle:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+        niveau:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+        bloc5:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+        formateurEspe:
+            type: string
+            nullable: true
+            length: 30
+            fixed: false
+            column: formateur_espe
+    lifecycleCallbacks: {  }

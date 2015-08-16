@@ -1,0 +1,75 @@
+Ade:
+    type: entity
+    table: ade
+    indexes:
+        ID:
+            columns:
+                - ID
+    uniqueConstraints:
+        ID_2:
+            columns:
+                - ID
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        date:
+            type: date
+            nullable: false
+            column: DATE
+        hDebut:
+            type: time
+            nullable: false
+            column: H_DEBUT
+        hFin:
+            type: time
+            nullable: false
+            column: H_FIN
+        duree:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: DUREE
+        salle:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            column: SALLE
+        resume:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            column: RESUME
+        formateur:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            column: FORMATEUR
+        description:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            column: DESCRIPTION
+        grpEtudiant:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            column: GRP_ETUDIANT
+        ue:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            column: UE
+    lifecycleCallbacks: {  }

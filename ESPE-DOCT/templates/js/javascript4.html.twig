@@ -1,0 +1,57 @@
+<script type="text/javascript">
+
+maj = function() {
+  cours = $('#le_cours').val();
+  semestre = $('#le_semestre').val();
+  bloc = $('#le_bloc').val();
+  discipline = $('#la_discipline').val();
+  $.ajax({
+	      method: 'post',
+	      data: { action: 'list_ue', secret: 'MrT', cours: cours, semestre:semestre, bloc:bloc, discipline:discipline},
+          url: "ajax.php",
+          cache: false
+      })
+	 .done(function(code) {
+	     //$('#result').html(code);	 
+		 flux = '<table border="1">';
+		 res = JSON.parse(code);
+		
+		 for (var i=0;i<res['code'].length;i++) {
+		 flux += '<tr>';
+		       flux += '<td>';flux += res['code'][i]['id'];flux += '</td>';
+			   flux += '<td>';flux += res['code'][i]['description'];flux += '</td>';
+			   flux += '<td>';flux += res['code'][i]['cm'];flux += '</td>';
+			   flux += '<td>';flux += res['code'][i]['td'];flux += '</td>';
+			   flux += '<td>';flux += res['code'][i]['tp'];flux += '</td>';
+			   flux += '<td>';flux += res['code'][i]['ects'];flux += '</td>';
+			   flux += '<td>';flux += res['code'][i]['coeff'];flux += '</td>';
+			   flux += '<td>';flux += res['code'][i]['controle'];flux += '</td>';
+			   flux += '<td>';flux += res['code'][i]['responsable'];flux += '</td>';
+		 flux += '</tr>';	   
+		 }
+		 
+         flux += '</table>';
+         $('#result').html(flux);			 
+	 });
+}
+
+$( window ).load(function() {
+
+ maj();
+ 
+ $('#le_cours').change(function() {
+   maj();
+ });
+ $('#le_semestre').change(function() {
+   maj();
+ });
+ $('#le_bloc').change(function() {
+   maj();
+ });
+ $('#la_discipline').change(function() {
+   maj();
+ });
+ 
+  
+});
+</script>

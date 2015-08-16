@@ -1,0 +1,73 @@
+EtudiantsNonFonctionnaires:
+    type: entity
+    table: etudiants_non_fonctionnaires
+    indexes:
+        ID_GROUPE:
+            columns:
+                - ID_GROUPE
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        titre:
+            type: string
+            nullable: false
+            length: 5
+            fixed: false
+            column: TITRE
+        nom:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            column: NOM
+        prenom:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            column: PRENOM
+        marital:
+            type: string
+            nullable: true
+            length: 200
+            fixed: false
+            column: MARITAL
+        affectationEspe:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            column: AFFECTATION_ESPE
+        tp:
+            type: string
+            nullable: false
+            length: 5
+            fixed: false
+            column: TP
+        inscrit:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: INSCRIT
+        presence:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: PRESENCE
+    manyToOne:
+        idGroupe:
+            targetEntity: Groupes
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_GROUPE:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

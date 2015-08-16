@@ -1,0 +1,20 @@
+Blocs:
+    type: entity
+    table: blocs
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: string
+            nullable: false
+            length: 500
+            fixed: false
+            column: DESCRIPTION
+    lifecycleCallbacks: {  }

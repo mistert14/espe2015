@@ -1,0 +1,8 @@
+<label for="pfa">PFA:</label>
+<select id="pfa">
+  <option value="-1">-</option>
+{%  for pfa in pfas %}
+   <option value="{{pfa.id}}">{{pfa.nom}} {{pfa.prenom|raw|convert_encoding('UTF-8', 'ISO-8859-1')}} ({{pfa.etablissement|raw|convert_encoding('UTF-8', 'ISO-8859-1')}} {{pfa.ville}})</option>
+{%  endfor %}
+</select>
+<br />

@@ -1,0 +1,30 @@
+<script type="text/javascript">
+$( window ).load(function() {
+   $('#groupe').change(function () {
+       var group = $('#groupe').val();
+		
+	  $.ajax({
+	      method: 'post',
+	      data: { action: 'list_groupe', secret: 'MrT', groupe: group},
+          url: "ajax.php",
+          cache: false
+      })
+	 .done(function(code) {
+	     res = JSON.parse(code);
+		 flux='<table border="1">';
+		 for (var i=0;i<res['code'].length;i++) {
+	           flux = flux+ '<tr>';
+		       st_id = res['code'][i]['id'];st_titre = res['code'][i]['titre'];st_nom = res['code'][i]['nom'];
+			   st_prenom = res['code'][i]['prenom'];st_marital = res['code'][i]['marital'];st_tp = res['code'][i]['tp'];
+			   st_groupe = res['code'][i]['groupe'];
+			   flux = flux+ '<td>'+st_id+'</td>';flux = flux+ '<td>'+st_nom+'</td>';flux = flux+ '<td>'+st_prenom+'</td>';
+			   flux = flux+ '<td>'+st_marital+'</td>';flux = flux+ '<td>'+st_tp+'</td>';flux = flux+ '<td>'+st_groupe+'</td>';
+			   flux = flux+ '</tr>';
+			   
+	           }
+	   flux += '</table>';
+	   $( "#result" ).html(flux);
+	 });
+   });
+});
+</script>

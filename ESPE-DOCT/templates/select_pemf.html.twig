@@ -1,0 +1,8 @@
+<label for="pemf">PEMF:</label>
+<select id="pemf">
+  <option value="-1">-</option>
+{%  for pemf in pemfs %}
+   <option value="{{pemf.id}}">{{pemf.nom}} {{pemf.prenom|raw|convert_encoding('UTF-8', 'ISO-8859-1')}} ({{pemf.ecoleNom|raw|convert_encoding('UTF-8', 'ISO-8859-1')}} {{pemf.circo}})</option>
+{%  endfor %}
+</select>
+<br />

@@ -1,0 +1,32 @@
+DossierCrpe:
+    type: entity
+    table: dossier_crpe
+    indexes:
+        id_student:
+            columns:
+                - id_student
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idStudent:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_student
+        discipline:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+        creneau:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+    lifecycleCallbacks: {  }

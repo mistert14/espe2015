@@ -1,0 +1,82 @@
+Ue:
+    type: entity
+    table: ue
+    id:
+        id:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: string
+            nullable: false
+            length: 300
+            fixed: false
+            column: DESCRIPTION
+        ects:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: ECTS
+        cm:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            column: CM
+        td:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            column: TD
+        tp:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            column: TP
+        coeff:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: COEFF
+        controle:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            column: CONTROLE
+        cours:
+            type: string
+            nullable: false
+            length: 10
+            fixed: false
+            column: COURS
+        semestre:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: SEMESTRE
+        bloc:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: BLOC
+        discipline:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: DISCIPLINE
+        responsable:
+            type: string
+            nullable: false
+            length: 40
+            fixed: false
+            column: RESPONSABLE
+    lifecycleCallbacks: {  }

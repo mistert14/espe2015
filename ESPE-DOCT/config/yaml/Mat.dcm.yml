@@ -1,0 +1,72 @@
+Mat:
+    type: entity
+    table: mat
+    indexes:
+        ID:
+            columns:
+                - ID
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        circo:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            column: CIRCO
+        matNom:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            column: MAT_NOM
+        matPrenom:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            column: MAT_PRENOM
+        ecole:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            column: ECOLE
+        ville:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            column: VILLE
+        niveau:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            column: NIVEAU
+        observation:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            column: OBSERVATION
+        telEcole:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            column: TEL_ECOLE
+        mailEcole:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            column: MAIL_ECOLE
+    lifecycleCallbacks: {  }

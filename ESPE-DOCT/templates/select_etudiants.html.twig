@@ -1,0 +1,18 @@
+{%  import 'forms.html.twig' as helper %}
+{% if fonctionnaires is defined %}
+<label for="etudiant">PES:</label>
+{% else %}
+<label for="etudiant">ETUDIANT:</label>
+{% endif %}
+<select id="etudiants">
+  <option value="-1">-</option>
+{% if fonctionnaires is defined %}
+{% for f in fonctionnaires %}
+<option value="{{f.id}}">{{f.NOM}} {{f.PRENOM|raw|convert_encoding('UTF-8', 'ISO-8859-1')}} ({{f.groupe}})</option>
+{% endfor %}
+{% endif %}
+</select>
+<br />
+{% if fonctionnaires is defined %}
+{{  helper.input('master2', 'MASTER2:', 'checkbox') }}
+{% endif %}

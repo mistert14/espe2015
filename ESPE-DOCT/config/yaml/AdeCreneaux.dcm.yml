@@ -1,0 +1,36 @@
+AdeCreneaux:
+    type: entity
+    table: ade_creneaux
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        groupe:
+            type: string
+            nullable: false
+            length: 5
+            fixed: false
+        ue:
+            type: string
+            nullable: false
+            length: 7
+            fixed: false
+        semestre:
+            type: integer
+            nullable: false
+            unsigned: false
+        comment:
+            type: string
+            nullable: false
+            length: 10
+            fixed: false
+        place:
+            type: integer
+            nullable: false
+            unsigned: false
+    lifecycleCallbacks: {  }

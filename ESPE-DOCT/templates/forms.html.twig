@@ -1,0 +1,18 @@
+{% macro input(name, value, type, size) %}
+
+{% if type == 'checkbox' %}
+    <br /><input type="{{ type|default('text') }}" id="{{ name }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}">
+    {{ value|e }}
+	</input>
+{% else %}	
+	<br /><input type="{{ type|default('text') }}" id="{{ name }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}" />
+{% endif %}	
+{% endmacro %}
+
+{% macro textarea(name, value, rows) %}
+    <textarea name="{{ name }}" rows="{{ rows|default(10) }}" cols="{{ cols|default(40) }}">{{ value|e }}</textarea>
+{% endmacro %}
+
+{% macro link(href,value) %}
+    <br /><a href="{{href}}" id="{{href}}">{{value}}</a>
+{% endmacro %}

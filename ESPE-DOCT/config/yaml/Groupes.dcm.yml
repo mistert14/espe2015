@@ -1,0 +1,24 @@
+Groupes:
+    type: entity
+    table: groupes
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        groupe:
+            type: string
+            nullable: false
+            length: 10
+            fixed: false
+        affectationEspe:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            column: affectation_espe
+    lifecycleCallbacks: {  }

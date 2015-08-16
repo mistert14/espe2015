@@ -1,0 +1,6 @@
+<select id="groupe">
+  <option value="-1">-</option>
+{%  for grp in groupes %}
+   <option value="{{grp.id}}">{{grp.groupe}}</option>
+{%  endfor %}
+</select>

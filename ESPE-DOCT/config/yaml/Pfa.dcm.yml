@@ -1,0 +1,33 @@
+Pfa:
+    type: entity
+    table: pfa
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+        prenom:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+        etablissement:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+        ville:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,8 @@
+<label for="mat">MAT:</label>
+<select id="mat">
+  <option value="-1">-</option>
+{%  for mat in mats %}
+   <option value="{{mat.id}}">{{mat.matNom}} {{mat.matPrenom|raw|convert_encoding('UTF-8', 'ISO-8859-1')}} ({{mat.ecole|raw|convert_encoding('UTF-8', 'ISO-8859-1')}} {{mat.circo}})</option>
+{%  endfor %}
+</select>
+<br />

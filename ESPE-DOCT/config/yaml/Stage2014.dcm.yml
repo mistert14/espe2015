@@ -1,0 +1,32 @@
+Stage2014:
+    type: entity
+    table: stage2014
+    indexes:
+        id_mat:
+            columns:
+                - id_mat
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idMat:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_mat
+        idStudent:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_student
+        remarque:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+    lifecycleCallbacks: {  }

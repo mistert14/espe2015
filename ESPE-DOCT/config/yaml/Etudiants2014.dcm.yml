@@ -1,0 +1,75 @@
+Etudiants2014:
+    type: entity
+    table: etudiants2014
+    indexes:
+        id:
+            columns:
+                - id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        titre:
+            type: string
+            nullable: false
+            length: 5
+            fixed: false
+            column: TITRE
+        nom:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            column: NOM
+        prenom:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            column: PRENOM
+        marital:
+            type: string
+            nullable: true
+            length: 200
+            fixed: false
+            column: MARITAL
+        affectationEspe:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            column: AFFECTATION_ESPE
+        groupe:
+            type: string
+            nullable: false
+            length: 6
+            fixed: false
+            column: GROUPE
+        tp:
+            type: string
+            nullable: false
+            length: 5
+            fixed: false
+            column: TP
+        inscrit:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: INSCRIT
+        presence:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: PRESENCE
+        pb:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            column: PB
+    lifecycleCallbacks: {  }

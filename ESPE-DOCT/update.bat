@@ -1,0 +1,1 @@
+doctrine orm:convert-mapping --from-database yml ./config/yaml --force & doctrine orm:generate-entities ./src & doctrine orm:info

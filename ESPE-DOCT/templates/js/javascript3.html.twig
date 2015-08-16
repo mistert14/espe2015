@@ -1,0 +1,121 @@
+<script type="text/javascript">
+var encadrant;
+
+maj = function(code) {
+var flux = ""
+	   //return;
+	   res = JSON.parse(code);
+       for (var i=0;i<res['code'].length;i++) {
+		       id_stage = res['code'][i]['id_stage'];
+		       mat_statut = res['code'][i]['surv_statut'];
+			   mat_nom = res['code'][i]['surv_nom'];
+			   mat_prenom = res['code'][i]['surv_prenom'];
+			   mat_circo = res['code'][i]['surv_circo'];
+			   student_nom = res['code'][i]['etu_nom'];
+			   student_prenom = res['code'][i]['etu_prenom'];
+               student_groupe = res['code'][i]['etu_groupe'];
+ 			   
+			   flux += "<div>";
+			   flux += '['+mat_statut+'] '+mat_nom+" "+mat_prenom+"("+mat_circo+")";
+			   flux += " <==> ";
+			   flux += student_nom+" "+student_prenom+"("+student_groupe+")";
+			   flux += '<input type="button" class="delete" id="'+id_stage+'" value="Effacer">';
+			   flux += "</input>";
+			   flux += "</div>";
+			   
+		}
+		$( "#result" ).html(flux);
+		$(".delete").click(function(code) {
+			$.ajax({
+	           method: 'post',
+		       data: { action: 'delete_stage', secret: 'MrT', id: this.id},
+               url: "ajax.php",
+               cache: false
+            })
+	        .done(function(code) {
+		       maj(code);
+	        });
+        });
+}
+
+$( window ).load(function() {
+   $.ajax({
+	      method: 'post',
+	      data: { action: 'list_stage', secret: 'MrT'},
+          url: "ajax.php",
+          cache: false
+      })
+	 .done(function(code) {
+	     maj(code);	   
+	 });
+
+   $('#btn_submit').click(function () {
+       stage = $('#stage').val();
+	   if ( stage == -1) return false;
+	   if (encadrant == null) return false;
+	   mat_pemf = $('#'+encadrant).val() 
+	   if (mat_pemf == -1) return false;
+	   etudiant = $('#etudiants').val();
+	   if (etudiant == -1) return false;
+	   //alert(stage+' '+etudiant+' '+encadrant+' '+mat_pemf);
+	  $.ajax({
+	      method: 'post',
+	      data: { action: 'add_stage', secret: 'MrT', stage: stage, etudiant: etudiant, type_encadrant: encadrant, mat_pemf: mat_pemf},
+          url: "ajax.php",
+          cache: false
+      })
+	 .done(function(code) {
+	     maj(code);	   
+	 });
+	 
+   });
+   
+   
+   $('#mat').change(function () {
+       if ($('#mat').val() !=  -1){
+	     $('#pemf').val(-1);
+		 $('#pfa').val(-1);
+		 encadrant = 'mat';
+	   }
+   });
+   $('#pemf').change(function () {
+       if ($('#pemf').val() !=  -1){
+	     $('#mat').val(-1);
+		 $('#pfa').val(-1);
+		 encadrant = 'pemf';
+	   }
+   });
+   $('#pfa').change(function () {
+       if ($('#pfa').val() !=  -1){
+	     $('#mat').val(-1);
+		 $('#pemf').val(-1);
+		 encadrant = 'pfa';
+	   }
+   });
+   
+   $('#groupe').change(function () {
+      var group = $('#groupe').val();
+		
+	  $.ajax({
+	      method: 'post',
+	      data: { action: 'list_groupe', secret: 'MrT', groupe: group},
+          url: "ajax.php",
+          cache: false
+      })
+	 .done(function(code) {
+	     res = JSON.parse(code);
+		 flux='<select>';
+		 for (var i=0;i<res['code'].length;i++) {
+	           flux = flux+ '<tr>';
+		       st_id = res['code'][i]['id'];st_titre = res['code'][i]['titre'];st_nom = res['code'][i]['nom'];
+			   st_prenom = res['code'][i]['prenom'];
+			   st_groupe = res['code'][i]['groupe'];
+			   flux = flux+'<option value="'+st_id+'">'+st_nom+' '+st_prenom+' ('+st_groupe+')'+'</option>';
+			   
+	           }
+	   flux += '</select>';
+	   $( "#etudiants" ).html(flux);
+	 });
+   });
+});
+</script>

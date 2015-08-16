@@ -1,0 +1,18 @@
+{%  include 'header.html.twig' %}
+{%  include 'js/javascript.html.twig' %}
+{%  if javascript is defined %}
+{%  include javascript %}
+{% endif %}
+</head>
+<body>
+<br />
+{%  if start is not defined %}
+<H1><A href="/ESPE-DOCT/index.php">MENU</A></H1>
+{%  endif %}
+<br />
+<div id="content">
+{%  for _menu in menu %}
+{%  include _menu %}
+{% endfor %}
+</div>
+{%  include 'footer.html.twig' %}

@@ -1,0 +1,26 @@
+<H1>SYNTHESE MAT</H1>
+<table border="1">
+<tbody>
+<td>Id</td><td>Nombre stages</td><td>Nom Mat</td><td>Prenom Mat</td><td>Niveau Mat</td><td>Circo.</td><td>Ecole</td><td>Ville Ecole</td><td>Mail Ecole</td><td>Téléphone Ecole</td>
+<td>Stage</td><td>Nom Etud.</td><td>Prenom Etud.</td><td>Groupe Etud.</td>
+<tbody>
+
+{% for dt in data %}
+<tr>
+<td>{{dt.id}}</td>
+<td>{{dt.nombre_stage}}</td>
+<td>{{dt.mat_nom}}</td>
+<td>{{dt.mat_prenom}}</td>
+<td>{{dt.mat_niveau}}</td>
+<td>{{dt.mat_circo}}</td>
+<td>{{dt.mat_ecole}}</td>
+<td>{{dt.mat_ville}}</td>
+<td>{{dt.mat_mail}}</td>
+<td>{{dt.mat_telephone}}</td>
+<td>{{dt.stage_rem}}</td>
+<td>{{dt.etu_nom}}</td>
+<td>{{dt.etu_prenom}}</td>
+<td>{{dt.etu_groupe}}</td>
+</tr>
+{% endfor %}
+</table>

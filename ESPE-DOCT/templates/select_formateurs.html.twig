@@ -1,0 +1,8 @@
+<label for="formateur">FORMATEUR ESPE:</label>
+<select id="formateur">
+  <option value="-1">-</option>
+{%  for formateur in formateurs %}
+   <option value="{{formateur.id}}">{{formateur.nom}} {{formateur.prenom|raw|convert_encoding('UTF-8', 'ISO-8859-1')}} </option>
+{%  endfor %}
+</select>
+<br />

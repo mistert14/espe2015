@@ -1,0 +1,16 @@
+<label for="stage">STAGE:</label>
+<select id="stage">
+<option value="-1">-</option>
+{%  for stage in stages %}
+{%  for gr in groupes %}
+{%  if gr.id == stage.idGroupe %}    
+<option value="{{stage.id}}">Stage des groupes {{gr.groupe}} du {{stage.du}} au {{stage.au}}
+{%  if stage.observation is not empty %}
+ , observation le {{stage.observation}} 
+{% endif %}
+</option>
+{% endif %}
+{% endfor %}  
+{% endfor %}
+</select>
+<br />

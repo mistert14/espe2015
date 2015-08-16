@@ -1,0 +1,19 @@
+Test:
+    type: entity
+    table: test
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        heure:
+            type: date
+            nullable: false
+        time:
+            type: time
+            nullable: false
+    lifecycleCallbacks: {  }

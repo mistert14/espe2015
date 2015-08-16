@@ -1,0 +1,74 @@
+<script type="text/javascript">
+
+maj = function() {
+
+   $.ajax({
+	      method: 'post',
+	      data: { action: 'list_tutors', secret: 'MrT'},
+          url: "ajax.php",
+          cache: false
+      })
+	 .done(function(code) {
+	     
+	     res = JSON.parse(code);
+		 flux ='<table border="1">';
+		 for (var i=0;i<res['code'].length;i++) {
+		   flux +='<tr>'
+		   flux += '<td>'+res['code'][i]['id']+'</td>';
+		   flux += '<td>'+res['code'][i]['etu_groupe']+'</td>';
+		   flux += '<td>'+res['code'][i]['etu_nom']+'</td>';
+		   flux += '<td>'+res['code'][i]['etu_prenom']+'</td>';
+		   flux += '<td>'+res['code'][i]['pemf_nom']+'</td>';
+		   flux += '<td>'+res['code'][i]['pemf_prenom']+'</td>';
+		   flux += '<td>'+res['code'][i]['espe_nom']+'</td>';
+		   flux += '<td>'+res['code'][i]['espe_prenom']+'</td>';
+		   flux += '<td><span id="del_'+res['code'][i]['id']+'" class="delete">EFFACER</span></td>';
+		   flux +='</tr>';
+		 
+		}
+		$('#result').html(flux);
+		$('.delete').dblclick(function(){
+		     $.ajax({
+				method: 'post',
+				data: { action: 'delete_tutor', id: this.id, secret: 'MrT'},
+				url: "ajax.php",
+				cache: false
+			})
+			.done(function(code) {
+				maj();
+			});
+	 
+		});
+	 });
+  
+}
+
+$( window ).load(function() {
+
+    maj();
+
+    $('#btn_submit').click(function () {
+       etudiant = $('#etudiants').val();
+	   if (etudiant == -1 ) return false;
+	   pemf = $('#pemf').val();
+	   if (pemf == -1 ) return false;
+	   formateur = $('#formateur').val();
+	   if (formateur == -1 ) return false;
+	   if( $('#master2').is(':checked') ){
+	     m2 = 'oui';
+	   } else {
+	     m2 = 'non';
+	   }
+	   $.ajax({
+	      method: 'post',
+	      data: { action: 'set_tutors', secret: 'MrT', etudiant: etudiant, pemf: pemf, formateur: formateur, m2: m2},
+          url: "ajax.php",
+          cache: false
+      })
+	 .done(function(code) {
+	     maj();	   
+	 });
+    });
+  
+});
+</script>

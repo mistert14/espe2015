@@ -1,0 +1,7 @@
+<H1>Menu</H1>
+
+{%  import 'forms.html.twig' as helper %}
+
+{%  for key,values in links %}
+{{  helper.link(values,key) }}
+{%  endfor %}

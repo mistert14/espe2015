@@ -1,0 +1,43 @@
+Tutorat:
+    type: entity
+    table: tutorat
+    indexes:
+        id_student:
+            columns:
+                - id_student
+        id_pemf:
+            columns:
+                - id_pemf
+        id_formateur:
+            columns:
+                - id_formateur
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idStudent:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_student
+        idPemf:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_pemf
+        idFormateur:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_formateur
+        master2:
+            type: string
+            nullable: true
+            length: null
+            fixed: false
+    lifecycleCallbacks: {  }

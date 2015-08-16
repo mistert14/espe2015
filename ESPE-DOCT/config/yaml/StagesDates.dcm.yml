@@ -1,0 +1,41 @@
+StagesDates:
+    type: entity
+    table: stages_dates
+    indexes:
+        id_groupe:
+            columns:
+                - id_groupe
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idGroupe:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_groupe
+        du:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+        au:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+        observation:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+        semestre:
+            type: integer
+            nullable: false
+            unsigned: false
+    lifecycleCallbacks: {  }

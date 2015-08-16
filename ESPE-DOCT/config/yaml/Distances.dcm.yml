@@ -1,0 +1,55 @@
+Distances:
+    type: entity
+    table: distances
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        insee:
+            type: string
+            nullable: false
+            length: 6
+            fixed: false
+        nom:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+        altitude:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        codePostal:
+            type: string
+            nullable: false
+            length: 6
+            fixed: false
+            column: code_postal
+        longitudeRadian:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            column: longitude_radian
+        latitudeRadian:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            column: latitude_radian
+        pop99:
+            type: integer
+            nullable: false
+            unsigned: false
+        surface:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+    lifecycleCallbacks: {  }
